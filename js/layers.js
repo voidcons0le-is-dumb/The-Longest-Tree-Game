@@ -1,32 +1,31 @@
-addLayer("u", {
-    name: "Universes", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "UNI",
+addLayer("l", {
+    name: "Levels", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "L",
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "blue",
+    color: "#8ff",
     nodeStyle: {
-        "background":"linear-gradient(rgb(0, 0, 0), rgb(0, 0, 255)) border-box",
-        "color":"#fffd",
+        "background":"linear-gradient(rgb(255, 255, 255), rgb(0, 255, 255)) border-box",
+    },
+    infoboxes: {
+        levelUpInfo: {
+            title: "biglgle",
+            body: "bloblbobo"
+        }
     },
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
-    resource: "prestige points", // Name of prestige currency
-    baseResource: "points", // Name of resource prestige is based on
-    baseAmount() {return player.points}, // Get the current amount of baseResource
-    type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 3, // Prestige currency exponent
-    gainMult() { // Calculate the multiplier for main currency from bonuses
-        mult = new Decimal(1)
-        return mult
+    resource: "levels", // Name of prestige currency
+    tabFormat: {
+        "Levelups": {
+            content: [
+                ["infobox", "levelUpInfo"]
+            ]
+        },
     },
-    gainExp() { // Calculate the exponent on main currency from bonuses
-        return new Decimal(1)
-    },
+    type: "none", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     row: 0, // Row the layer is in on the tree (0 is the first row)
-    hotkeys: [
-        {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
-    ],
     layerShown(){return true}
 })
