@@ -12,8 +12,8 @@ addLayer("l", {
     },
     infoboxes: {
         levelUpInfo: {
-            title: "biglgle",
-            body: "bloblbobo"
+            title: "Levels Tutorial",
+            body: "This is the tutorial for this layer. you will see it on every layer in this game. You can level up using XP when you have enough. Press the button when the button is not red anymore to get a level."
         }
     },
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
