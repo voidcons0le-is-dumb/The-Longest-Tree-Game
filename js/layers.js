@@ -1,15 +1,12 @@
-addLayer("l", {
-    name: "Levels", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "L",
+addLayer("t", {
+    name: "Trees", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "T",
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#8ff",
-    nodeStyle: {
-        "background":"linear-gradient(rgb(255, 255, 255), rgb(0, 255, 255)) border-box",
-    },
+    color: "#46c926",
     infoboxes: {
         levelUpInfo: {
             title: "Levels Tutorial",
