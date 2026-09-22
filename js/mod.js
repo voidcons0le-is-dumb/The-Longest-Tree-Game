@@ -1,7 +1,7 @@
 let modInfo = {
-	name: "The ??? Tree",
-	author: "nobody",
-	pointsName: "points",
+	name: "The EToH Towers Tree",
+	author: "pluto💚",
+	pointsName: "Time",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -12,13 +12,13 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "0.0.0.0.0.0.0.0",
+	name: "Infinite absolute beyond nothingness",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
-		- Added things.<br>
+	<h3>v0.0.0.0.0.0.0.0</h3><br>
+		- Played video games on my school computer instead of doing my work.<br>
 		- Added stuff.`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
@@ -42,6 +42,9 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
+	if (hasUpgrade('rm', 11)) gain = gain.mul(2)
+	if (hasUpgrade('rm', 12)) gain = gain.mul(3)
+	if (hasUpgrade('rm', 14)) gain = gain.mul(2.5)
 	return gain
 }
 
