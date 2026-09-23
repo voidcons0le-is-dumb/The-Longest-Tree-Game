@@ -28,9 +28,9 @@ addLayer("uni", {
     layerShown(){return true}
 })
 
-addLayer("rm", {
+addLayer('p', {
     name: "rawmetal", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "RM", // This appears on the layer's node. Default is the id with the first letter capitalized
+    symbol: "Pr", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
@@ -39,21 +39,21 @@ addLayer("rm", {
     infoboxes: {
         info: {
             title: "Raw Metal",
-            body: "This is the first real layer. You can use your <span id='points'>Time</span> to mine <span id='rawmetalc'>Raw Metal</span>. <span id='rawmetalc'>Raw Metal</span> is used on upgrades to your currencies. Complete this layer to unlock a new one!"
+            body: "This is the first real layer. You can use your <span id='points'>Time</span> to prestige for <span id='rawmetalc'>PPts</span>. <span id='rawmetalc'>PPts</span> is used on upgrades to your currencies. Complete this layer to unlock a new one!"
         }
     },
-    color: "#cee",
+    color: "#cff",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
-    resource: "Raw Metal", // Name of prestige currency
-    resetDescription: "Mine ",
+    resource: "PPts", // Name of prestige currency
+    resetDescription: "Prestige for ",
     baseResource: "Time", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
-        if (hasUpgrade('rm', 13)) mult = mult.mul(3)
-        if (hasUpgrade('rm', 14)) mult = mult.mul(2.5)
+        if (hasUpgrade('p', 13)) mult = mult.mul(3)
+        if (hasUpgrade('p', 14)) mult = mult.mul(2.5)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -66,26 +66,26 @@ addLayer("rm", {
     layerShown(){return true},
     upgrades: {
         11: {
-            title: "More Workers",
+            title: "Multiplier",
             description: "Doubles your Time gain",
             effectDisplay: "x2",
             cost: new Decimal(1)
         },
         12: {
-            title: "Even More Workers",
+            title: "Tripliplier",
             description: "Triples your Time gain",
             effectDisplay: "x3",
             cost: new Decimal(3)
         },
         13: {
-            title: "Stronger Tools",
-            description: "Triples your Raw Metal gain",
+            title: "Prestigiplier",
+            description: "Triples your PPts gain",
             effectDisplay: "x3",
             cost: new Decimal(10)
         },
         14: {
-            title: "Multi Tasking",
-            description: "x2.5 to both Time and Raw Metal",
+            title: "Multi-multiplier",
+            description: "x2.5 to both Time and PPts",
             effectDisplay: "x2.5, x2.5",
             cost: new Decimal(45)
         },
