@@ -38,7 +38,7 @@ addLayer('p', {
     }},
     infoboxes: {
         info: {
-            title: "Raw Metal",
+            title: "Prestige",
             body: "This is the first real layer. You can use your <span id='points'>Time</span> to prestige for <span id='rawmetalc'>PPts</span>. <span id='rawmetalc'>PPts</span> is used on upgrades to your currencies. Complete this layer to unlock a new one!"
         }
     },
@@ -84,6 +84,12 @@ addLayer('p', {
             cost: new Decimal(10)
         },
         14: {
+            title: "Multi-multiplier",
+            description: "x2.5 to both Time and PPts",
+            effectDisplay: "x2.5, x2.5",
+            cost: new Decimal(45)
+        },
+        21: {
             title: "Multi-multiplier",
             description: "x2.5 to both Time and PPts",
             effectDisplay: "x2.5, x2.5",
