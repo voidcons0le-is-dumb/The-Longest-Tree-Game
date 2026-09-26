@@ -27,7 +27,7 @@ addLayer("uni", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
-    row: "side", // Row the layer is in on the tree (0 is the first row)
+    row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "u", description: "[U] Reset for Universes", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
@@ -48,18 +48,24 @@ addLayer("p", {
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "none", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.5, // Prestige currency exponent
-    row: 0, // Row the layer is in on the tree (0 is the first row)
+    row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){}},
     ],
+    tooltip() {return format(player.points)+" points"},
     tabFormat: {
         "Main": {
             content: [
                 ["display-text", function() {return "You have <h2 style='color: #af9; text-shadow: #af9 0px 0px 10px;'>"+format(player.points)+"</h2> points"}],
                 "blank",
-                ["display-text", "This is the points layer. It's the default currency, you can use it to buy upgrades in the point tree."]
+                ["display-text", "This is the points layer. It's the default currency, you can use it to buy upgrades in the point tree."],
+                "blank",
+                "upgrades"
             ]
         },
     },
-    layerShown(){return true}
+    layerShown(){return true},
+    upgrades: {
+        
+    },
 })

@@ -15,6 +15,9 @@ function getStartOptions() {
 		oldStyle: false,
 		forceTooltips: true,
 		hideMilestonePopups: false,
+		notation: "standard",
+		commaStopValue: "6",
+		precision: "3",
 	}
 }
 
@@ -50,6 +53,27 @@ function toggleAuto(toggle) {
 const MS_DISPLAYS = ["ALL", "LAST, AUTO, INCOMPLETE", "AUTOMATION, INCOMPLETE", "INCOMPLETE", "NONE"];
 
 const MS_SETTINGS = ["always", "last", "automation", "incomplete", "never"];
+
+const NOTATIONS = ["standard", "scientific", "engineering", "letters"];
+
+const COMMAVALUES = ["6", "9", "12", "15", "18", "21"];
+
+const PRECISIONS = ["2", "3", "5"];
+
+function changeNotation() {
+	let current = NOTATIONS.indexOf(options.notation);
+	options.notation = NOTATIONS[(current + 1) % NOTATIONS.length];
+}
+
+function changeCommaStopValue() {
+	let current = COMMAVALUES.indexOf(options.commaStopValue);
+	options.commaStopValue = COMMAVALUES[(current + 1) % COMMAVALUES.length];
+}
+
+function changePrecision() {
+	let current = PRECISIONS.indexOf(options.precision);
+	options.precision = PRECISIONS[(current + 1) % PRECISIONS.length];
+}
 
 function adjustMSDisp() {
 	options.msDisplay = MS_SETTINGS[(MS_SETTINGS.indexOf(options.msDisplay) + 1) % 5];
