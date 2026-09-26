@@ -1,7 +1,7 @@
 let modInfo = {
-	name: "The EToH Towers Tree",
-	author: "pluto💚",
-	pointsName: "Time",
+	name: "Pluto's Upgrade Tree",
+	author: "pluto <3",
+	pointsName: "points",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -42,9 +42,7 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
-	if (hasUpgrade('p', 11)) gain = gain.mul(2)
-	if (hasUpgrade('p', 12)) gain = gain.mul(3)
-	if (hasUpgrade('p', 14)) gain = gain.mul(2.5)
+	
 	return gain
 }
 
